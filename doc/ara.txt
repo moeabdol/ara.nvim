@@ -1,0 +1,45 @@
+*ara.txt*                 Boilerplate greeting plugin for Neovim
+
+==============================================================================
+CONTENTS                                                        *ara-contents*
+
+  1. Introduction ........................................ |ara-introduction|
+  2. Setup ............................................... |ara-setup|
+  3. Commands ............................................ |ara-commands|
+  4. Lua API ............................................. |ara-api|
+
+==============================================================================
+1. INTRODUCTION                                             *ara-introduction*
+							    *ara* *ara.nvim*
+
+ara.nvim is a minimal Neovim plugin skeleton: a Lua module under `lua/ara`,
+a startup file under `plugin/`, this help file, and a test suite.
+
+==============================================================================
+2. SETUP                                                           *ara-setup*
+
+Calling setup is optional; every option has a default. Defaults shown: >lua
+
+        require("ara").setup({
+                greeting = "Hello",    -- word placed before the name
+                name = nil,            -- nil means "use $USER"
+                punctuation = "!",     -- appended after the name
+        })
+<
+==============================================================================
+3. COMMANDS                                                     *ara-commands*
+
+:Ara [name]                                                             *:Ara*
+        Show the greeting via |vim.notify()|. With no argument the configured
+        `name` (or $USER) is used.
+
+==============================================================================
+4. LUA API                                                           *ara-api*
+
+ara.setup({opts})                                                 *ara.setup()*
+        Merge {opts} over the defaults. See |ara-setup|.
+
+ara.hello({name})                                                 *ara.hello()*
+        Return the greeting string. Pure function, no UI.
+
+vim:tw=78:ts=8:ft=help:norl:
